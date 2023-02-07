@@ -20,6 +20,7 @@ Note: Open Required Ports In AWS Security Groups. For now we will open All trafi
 
 ==========COMMON FOR MASTER & SLAVES START ====
 
+
 1) Switch to root user
    
 sudo su -
@@ -66,6 +67,7 @@ Note: We are not installing Docker Here.Since containerd.io package is part of d
 
 
 # Add Docker’s official GPG key:
+
 sudo mkdir -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
@@ -173,11 +175,11 @@ kubectl get pods -o wide -n kube-system
 
 Note: Install any one network addon don't install both. Install either weave net or calico.
 
-To install Weaven net run the following command.
+#To install Weaven net run the following command.
 
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
 
-Or To install the calico network addon, run the following command:
+#Or To install the calico network addon, run the following command:
 
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml 
 
@@ -231,7 +233,9 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 chmod +x kubectl
 mkdir -p ~/.local/bin
 mv ./kubectl ~/.local/bin/kubectl
+
 # and then append (or prepend) ~/.local/bin to $PATH
+
 kubectl version --client
 
 
